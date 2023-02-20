@@ -88,8 +88,8 @@ Make your names searchable.
 **Bad:**
 
 ```dart
-// What the heck is 86400000 for?
-Future.delayed(Duration(milliseconds: 86400000), blastOff);
+// What the heck is 32 for?
+Future.delayed(Duration(minutes: 32), launch);
 ```
 
 **Good:**
@@ -98,10 +98,10 @@ Future.delayed(Duration(milliseconds: 86400000), blastOff);
 // Declare them as const if the value is known at compile time;
 // Declare as final if the variable is assigned just once;
 // Use lowerCamelCase;
-// millisecondsPerDay is int, because the type is inferred.
-const millisecondsPerDay = 86400000;
+// setupTimeInMinutes is int, because the type is inferred.
+const setupTimeInMinutes = 32;
 
-Future.delayed(Duration(milliseconds: millisecondsPerDay), blastOff);
+Future.delayed(Duration(minutes: setupTimeInMinutes), launch);
 ```
 
 **[⬆ back to top](#table-of-contents)**
