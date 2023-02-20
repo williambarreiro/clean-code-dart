@@ -849,9 +849,9 @@ account.balance = 100;
 
 **[⬆ back to top](#table-of-contents)**
 
-### Use private methods and attributes
+### Use private methods and attributes when necessary
 
-If a method or attribute is used only within a class, it must be private.
+If a method or attribute has to be accessed only within the class, it must be private.
 
 **Bad:**
 
