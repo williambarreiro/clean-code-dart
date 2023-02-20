@@ -245,7 +245,7 @@ parameters. They have a few advantages:
 **Bad:**
 
 ```dart
-void createMenu(String title, String body, String buttonText, bool cancellable) {
+Menu getMenu(String title, String body, String buttonText, bool cancellable) {
   // ...
 }
 ```
@@ -253,7 +253,7 @@ void createMenu(String title, String body, String buttonText, bool cancellable) 
 **Good:**
 
 ```dart
-void createMenu({
+Menu getMenu({
   required String title,
   required String body,
   required String buttonText,
@@ -262,7 +262,7 @@ void createMenu({
   // ...
 }
 
-createMenu(
+final menu = getMenu(
   title: 'Foo',
   body: 'Bar',
   buttonText: 'Baz',
