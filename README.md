@@ -459,13 +459,10 @@ Widget buildManagerCard(Manager manager) {
 Widget buildEmployeeCard(Employee employee) {
   String projectsLink;
 
-  switch (employee.runtimeType) {
-    case Manager:
-      projectsLink = manager.getMBAProjects();
-      break;
-    case Developer:
-      projectsLink = developer.getGithubLink();
-      break;
+  if (employee is Manager) {
+    projectsLink = manager.getMBAProjects();
+  } else if (employee is Developer) {
+    projectsLink = developer.getGithubLink();
   }
 
   return CustomCard(
