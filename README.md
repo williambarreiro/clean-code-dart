@@ -95,9 +95,11 @@ Future.delayed(Duration(milliseconds: 86400000), blastOff);
 **Good:**
 
 ```dart
-// Declare them as final and lowerCamelCase.
+// Declare them as const if the value is known at compile time;
+// Declare as final if the variable is assigned just once;
+// Use lowerCamelCase;
 // millisecondsPerDay is int, because the type is inferred.
-final millisecondsPerDay = 86400000;
+const millisecondsPerDay = 86400000;
 
 Future.delayed(Duration(milliseconds: millisecondsPerDay), blastOff);
 ```
@@ -109,14 +111,14 @@ Future.delayed(Duration(milliseconds: millisecondsPerDay), blastOff);
 **Bad:**
 
 ```dart
-final address = <String>['One Infinite Loop', 'Cupertino', '95014'];
+const address = <String>['One Infinite Loop', 'Cupertino', '95014'];
 saveCityZipCode(address[1], address[2]);
 ```
 
 **Good:**
 
 ```dart
-final address = <String>['One Infinite Loop', 'Cupertino', '95014'];
+const address = <String>['One Infinite Loop', 'Cupertino', '95014'];
 final city = address[1];
 final zipCode = address[2];
 saveCityZipCode(city, zipCode);
@@ -131,7 +133,7 @@ Explicit is better than implicit.
 **Bad:**
 
 ```dart
-final locations = <String>['Austin', 'New York', 'San Francisco'];
+const locations = <String>['Austin', 'New York', 'San Francisco'];
 locations.forEach((l) {
   doStuff();
   doSomeOtherStuff();
@@ -146,7 +148,7 @@ locations.forEach((l) {
 **Good:**
 
 ```dart
-final locations = <String>['Austin', 'New York', 'San Francisco'];
+const locations = <String>['Austin', 'New York', 'San Francisco'];
 locations.forEach((location) {
   doStuff();
   doSomeOtherStuff();
@@ -525,7 +527,7 @@ be happier than the vast majority of other programmers.
 
 **Bad:**
 
-```javascript
+```dart
 // Global variable referenced by following function.
 // If we had another function that used this name, now it'd be an array and it could break it.
 dynamic name = 'Ryan McDermott';
@@ -600,7 +602,7 @@ void addItemToCart(List<int> cart, int item) {
   cart.add(item);
 } 
 
-final cart = [1, 2];
+final cart = <int>[1, 2];
 addItemToCart(cart, 3);
 
 print(cart); // [1, 2, 3]
@@ -613,7 +615,7 @@ List<int> addItemToCart(List<int> cart, int item) {
   return [...cart, item];
 }
 
-final cart = [1, 2];
+final cart = <int>[1, 2];
 final newCart = addItemToCart(cart, 3);
 
 print(cart); // [1, 2]
@@ -1459,12 +1461,12 @@ import 'package:test/test.dart';
 
 group('String', () {
   test('.split() splits the string on the delimiter', () {
-    final string = 'foo,bar,baz';
+    const string = 'foo,bar,baz';
     expect(string.split(','), equals(['foo', 'bar', 'baz']));
   });
 
   test('.trim() removes surrounding whitespace', () {
-    final string = '  foo ';
+    const string = '  foo ';
     expect(string.trim(), equals('foo'));
   });
 });
