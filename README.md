@@ -196,10 +196,9 @@ void paintCar(Car car, String color) {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Use default parameters instead of short circuiting or conditionals
+### When possible, use default parameters instead of short circuiting or conditionals
 
-Default parameters are often cleaner than short circuiting. Be aware that if you
-use them, your function will only provide default values for `null`.
+Default parameters are often cleaner than short circuiting, however they must be const, so you cannot use them on every case.
 
 **Bad:**
 
@@ -1534,7 +1533,7 @@ try {
 ```dart
 try {
   functionThatMightThrow();
-} catch (e, s) {
+} on Exception catch (e, s) {
   // Option 1:
   log('Error description...', error: e, stackTrace: s);
   // Option 2:
@@ -1546,7 +1545,8 @@ try {
 
 ### Don't ignore Future errors
 
-If you want to use future/then, remember to handle the errors.
+Using await within try/catch is way better than future/then. But,
+if you want to use future/then, remember to handle the errors.
 
 **Bad:**
 
