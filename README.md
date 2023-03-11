@@ -1834,6 +1834,6 @@ void startProject() {
 
 This is also available in other languages:
 
-- ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [williambarreiro/clean-code-dart](https://github.com/williambarreiro/clean-code-dart)
+- ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [williambarreiro/clean-code-dart-pt](https://github.com/williambarreiro/clean-code-dart-pt)
 
 **[⬆ back to top](#table-of-contents)**
